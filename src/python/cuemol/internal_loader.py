@@ -19,6 +19,10 @@ def import_internal():
     # try embedded version
     if _internal_module is None:
         mod_name = "_cuemol_internal"
-        _internal_module = importlib.import_module(mod_name)
+        try:
+            _internal_module = importlib.import_module(mod_name)
+        except ModuleNotFoundError:
+            _internal_module = None
 
     return _internal_module
+

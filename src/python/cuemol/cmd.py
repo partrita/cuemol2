@@ -112,3 +112,10 @@ def load(aFileName, aName=None, aFmt=None, aScene=None, aOpts=None):
     else:
         # Unknown category ID, throw exception here
         raise RuntimeError("Unknown category ID " + str(ncat))
+
+
+def motm(aObj, mode="protein_ligand", **kwargs):
+    """Apply Molecule of the Month preset to object."""
+    import cuemol.motm as motm_mod
+    return motm_mod.apply_motm_preset(aObj, mode=mode, **kwargs)
+

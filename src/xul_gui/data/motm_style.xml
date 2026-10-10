@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CueMol2 Style Definition: Molecule of the Month (MotM) Preset -->
+<styles id="motm_style">
+
+  <!-- ========== Palettes & Colors ========== -->
+
+  <!-- Secondary Structure Pastels (Goodsell / MotM style) -->
+  <color id="MotM_Helix" value="#E58B88"/>       <!-- Soft Coral / Warm Rose -->
+  <color id="MotM_Sheet" value="#7BAFD4"/>       <!-- Soft Slate Blue / Azure -->
+  <color id="MotM_Coil" value="#D0CEBA"/>        <!-- Muted Sand / Warm Light Gray -->
+
+  <!-- Multi-chain Pastel Palette -->
+  <color id="MotM_ChainA" value="#88B04B"/>      <!-- Soft Sage Green -->
+  <color id="MotM_ChainB" value="#92A8D1"/>      <!-- Soft Serenity Blue -->
+  <color id="MotM_ChainC" value="#F7CAC9"/>      <!-- Soft Rose Quartz -->
+  <color id="MotM_ChainD" value="#B565A7"/>      <!-- Soft Radiant Orchid -->
+  <color id="MotM_ChainE" value="#FF6F61"/>      <!-- Soft Living Coral -->
+  <color id="MotM_ChainF" value="#E08119"/>      <!-- Soft Ochre Amber -->
+  <color id="MotM_ChainG" value="#45B8AC"/>      <!-- Soft Turquoise / Mint -->
+  <color id="MotM_ChainH" value="#98B4D4"/>      <!-- Soft Powder Blue -->
+
+  <!-- Ligand & Cofactor Harmonious Elemental Colors -->
+  <color id="MotM_Carbon" value="#A0A0A0"/>      <!-- Light Slate Neutral Gray -->
+  <color id="MotM_Nitrogen" value="#4C72B0"/>    <!-- Soft Deep Blue -->
+  <color id="MotM_Oxygen" value="#C44E52"/>      <!-- Warm Brick Red -->
+  <color id="MotM_Sulfur" value="#CCB974"/>      <!-- Muted Gold / Amber -->
+  <color id="MotM_Phosphorus" value="#DD8452"/>  <!-- Tangerine / Muted Orange -->
+  <color id="MotM_Halogen" value="#55A868"/>     <!-- Soft Green -->
+
+  <!-- Ion Accents -->
+  <color id="MotM_Ion_Mg" value="#2CA02C"/>      <!-- Emerald Accent -->
+  <color id="MotM_Ion_Zn" value="#7F7F7F"/>      <!-- Slate Gray -->
+  <color id="MotM_Ion_Ca" value="#17BECF"/>      <!-- Soft Cyan -->
+  <color id="MotM_Ion_Fe" value="#D62728"/>      <!-- Rust Iron -->
+  <color id="MotM_Ion_Default" value="#9467BD"/> <!-- Soft Purple Ion -->
+
+  <!-- Nucleic Acid Colors -->
+  <color id="MotM_NA_Backbone" value="#5F9EA0"/> <!-- Cadet Teal Backbone -->
+  <color id="MotM_NA_Ade" value="#E58B88"/>      <!-- Adenine (A) -->
+  <color id="MotM_NA_Thy" value="#7BAFD4"/>      <!-- Thymine (T) -->
+  <color id="MotM_NA_Gua" value="#88B04B"/>      <!-- Guanine (G) -->
+  <color id="MotM_NA_Cyt" value="#CCB974"/>      <!-- Cytosine (C) -->
+  <color id="MotM_NA_Ura" value="#DD8452"/>      <!-- Uracil (U) -->
+
+  <!-- Selection Aliases for Smart Filtering -->
+  <sel id="motm_protein" value="rprop type=prot"/>
+  <sel id="motm_nucleic" value="rprop type=nucl"/>
+  <sel id="motm_water" value="rprop type=water | resn HOH | resn WAT | resn DOD | resn TIP3"/>
+  <sel id="motm_ion" value="elem Mg | elem Zn | elem Ca | elem Fe | elem Mn | elem Na | elem K | elem Cl | elem Cu | elem Ni | elem Co"/>
+  <sel id="motm_ligand" value="!rprop type=prot &amp; !rprop type=nucl &amp; !motm_water &amp; !motm_ion"/>
+
+  <!-- ========== Renderer Styles ========== -->
+
+  <!-- 1. Protein Cartoon Style -->
+  <style id="MotM_Cartoon" type="renderer" desc="Molecule of the Month Cartoon"
+    axialdetail="10" smoothcolor="true" egtype="edges" eglinew="0.04" material="default">
+    <helix_waver value="true"/>
+    <helix_wplus value="0.25"/>
+    <helix type="elliptical" tuber="1.2"/>
+    <sheet type="rectangle" tuber="6.5" width="0.25"/>
+    <sheet_smooth value="2.5"/>
+    <sheethead type="arrow" gamma="1.1" arrow="1.4"/>
+    <sheettail type="smooth"/>
+    <coil type="elliptical" width="0.28"/>
+    <coil_smooth value="0.0"/>
+    <ribhelix type="rectangle" tuber="5.5" width="0.2"/>
+    <ribhelix_head type="smooth"/>
+    <ribhelix_tail type="smooth"/>
+  </style>
+
+  <!-- 2. Protein Ribbon Style (Alternative) -->
+  <style id="MotM_Ribbon" type="renderer" desc="Molecule of the Month Ribbon"
+    axialdetail="10" egtype="edges" eglinew="0.04" material="default">
+    <helix type="rectangle" tuber="6.0" width="0.25"/>
+    <helixhead type="smooth"/>
+    <helixtail type="smooth"/>
+    <sheet type="rectangle" tuber="6.5" width="0.25"/>
+    <sheethead type="arrow" gamma="1.1"/>
+    <sheettail type="smooth"/>
+    <coil width="0.28"/>
+  </style>
+
+  <!-- 3. Ligand Ball & Stick Style -->
+  <style id="MotM_BallStick" type="renderer" desc="Molecule of the Month BallStick"
+    bondw="0.22" sphr="0.38" detail="12" ring="true" ringcolor="#E0E0E0"
+    egtype="edges" eglinew="0.03" material="default">
+  </style>
+
+  <!-- 4. Metal Ion Sphere Style (Enlarged) -->
+  <style id="MotM_IonSphere" type="renderer" desc="Molecule of the Month Ion Sphere"
+    detail="16" egtype="edges" eglinew="0.04" material="default">
+  </style>
+
+  <!-- 5. Nucleic Acid Ribbon Style -->
+  <style id="MotM_Nucl" type="renderer" desc="Molecule of the Month Nucleic Acid"
+    axialdetail="10" pivotatom="P" show_tube="true" show_basepair="true"
+    base_size="0.6" base_thick="0.35" base_detail="4" base_type="detail1"
+    egtype="edges" eglinew="0.04" material="default">
+    <section width="0.45" tuber="2.2"/>
+  </style>
+
+  <!-- 6. Molecular Surface Style (Semi-transparent) -->
+  <style id="MotM_Surface" type="renderer" desc="Molecule of the Month MolSurf"
+    surftype="ses" detail="6" proberad="1.4" alpha="0.45" cullface="false"
+    drawmode="fill" material="default">
+  </style>
+
+  <!-- ========== Coloring Scheme Styles ========== -->
+
+  <!-- Secondary Structure Paint Coloring Scheme -->
+  <style id="MotM_SecStrColoring" type="renderer" desc="Molecule of the Month Secondary Structure Palette">
+    <coloring type="PaintColoring">
+      <paint sel="helix" color="MotM_Helix"/>
+      <paint sel="sheet" color="MotM_Sheet"/>
+      <paint sel="nucleic" color="MotM_NA_Backbone"/>
+      <paint sel="*" color="MotM_Coil"/>
+    </coloring>
+  </style>
+
+  <!-- Harmonious Ligand CPK Coloring Scheme -->
+  <style id="MotM_CPKColoring" type="renderer" desc="Molecule of the Month CPK Palette">
+    <coloring type="CPKColoring"
+      col_C="MotM_Carbon"
+      col_N="MotM_Nitrogen"
+      col_O="MotM_Oxygen"
+      col_S="MotM_Sulfur"
+      col_P="MotM_Phosphorus"
+      col_H="#E8E8E8"
+      col_X="MotM_Ion_Default"/>
+  </style>
+
+  <!-- ========== High-Level Render Presets ========== -->
+
+  <!-- Preset 1: Cartoon Only (Protein Mode) -->
+  <style id="MotM_ProteinPreset" type="MolCoord-rendpreset" desc="MotM: Protein Cartoon">
+    <renderer type="cartoon" sel="motm_protein" style="MotM_Cartoon,MotM_SecStrColoring"/>
+  </style>
+
+  <!-- Preset 2: Protein + Ligands (Default Protein-Ligand Mode) -->
+  <style id="MotM_ProteinLigandPreset" type="MolCoord-rendpreset" desc="MotM: Protein + Ligands">
+    <renderer type="cartoon" sel="motm_protein" style="MotM_Cartoon,MotM_SecStrColoring"/>
+    <renderer type="ballstick" sel="motm_ligand" style="MotM_BallStick,MotM_CPKColoring"/>
+    <renderer type="cpk" sel="motm_ion" style="MotM_IonSphere,MotM_CPKColoring"/>
+  </style>
+
+  <!-- Preset 3: Protein + Surface (Protein Surface Mode) -->
+  <style id="MotM_ProteinSurfacePreset" type="MolCoord-rendpreset" desc="MotM: Protein + Surface">
+    <renderer type="cartoon" sel="motm_protein" style="MotM_Cartoon,MotM_SecStrColoring"/>
+    <renderer type="dsurf" sel="motm_protein" style="MotM_Surface,MotM_SecStrColoring"/>
+  </style>
+
+  <!-- Preset 4: Full Complex Mode -->
+  <style id="MotM_FullPreset" type="MolCoord-rendpreset" desc="MotM: Full Molecular Complex">
+    <renderer type="cartoon" sel="motm_protein" style="MotM_Cartoon,MotM_SecStrColoring"/>
+    <renderer type="nucl" sel="motm_nucleic" style="MotM_Nucl"/>
+    <renderer type="ballstick" sel="motm_ligand" style="MotM_BallStick,MotM_CPKColoring"/>
+    <renderer type="cpk" sel="motm_ion" style="MotM_IonSphere,MotM_CPKColoring"/>
+    <renderer type="dsurf" sel="motm_protein" style="MotM_Surface,MotM_SecStrColoring"/>
+  </style>
+
+</styles>
