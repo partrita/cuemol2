@@ -18,7 +18,10 @@ jobs:
   build_posix:
     name: '${{ matrix.name }}'
     runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
     # Package tritium only on the release cadence (develop / tags / manual
+
     # dispatch), not on every feature-branch push. Core build + tests run always.
     env:
       DO_PACKAGE: ${{ github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch' }}
